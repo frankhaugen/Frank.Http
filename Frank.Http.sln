@@ -1,0 +1,52 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frank.Http", "Frank.Http\Frank.Http.csproj", "{A5D2C137-025A-454F-83B8-44EF86A4B45C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{AE9DF58E-3F45-4481-A8A1-91D097D734B2}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		icon.png = icon.png
+		LICENSE = LICENSE
+		nuget.config = nuget.config
+		README.md = README.md
+		.github\workflows\merge.yml = .github\workflows\merge.yml
+		.github\workflows\pull-request.yml = .github\workflows\pull-request.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frank.Http.Abstractions", "Frank.Http.Abstractions\Frank.Http.Abstractions.csproj", "{C8054983-F410-48AA-910B-CC925362EED1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frank.Http.Extensions", "Frank.Http.Extensions\Frank.Http.Extensions.csproj", "{325183A2-085A-4D16-916E-DC65CFACBD10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frank.Http.Authentication", "Frank.Http.Authentication\Frank.Http.Authentication.csproj", "{A9D36A24-B239-4AA2-AACE-3BA20A14100C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5D2C137-025A-454F-83B8-44EF86A4B45C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5D2C137-025A-454F-83B8-44EF86A4B45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5D2C137-025A-454F-83B8-44EF86A4B45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5D2C137-025A-454F-83B8-44EF86A4B45C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8054983-F410-48AA-910B-CC925362EED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8054983-F410-48AA-910B-CC925362EED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8054983-F410-48AA-910B-CC925362EED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8054983-F410-48AA-910B-CC925362EED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{325183A2-085A-4D16-916E-DC65CFACBD10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325183A2-085A-4D16-916E-DC65CFACBD10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{325183A2-085A-4D16-916E-DC65CFACBD10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325183A2-085A-4D16-916E-DC65CFACBD10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9D36A24-B239-4AA2-AACE-3BA20A14100C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D36A24-B239-4AA2-AACE-3BA20A14100C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D36A24-B239-4AA2-AACE-3BA20A14100C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D36A24-B239-4AA2-AACE-3BA20A14100C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
