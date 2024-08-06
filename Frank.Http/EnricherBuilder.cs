@@ -1,0 +1,26 @@
+using Frank.Http.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Frank.Http;
+
+public class EnricherBuilder : IEnricherBuilder
+{
+    private readonly IServiceCollection _services;
+
+    public EnricherBuilder(IServiceCollection services)
+    {
+        _services = services;
+    }
+
+    public IEnricherBuilder AddEnricher<T>() where T : class, IRequestEnricher
+    {
+        _services.AddSingleton<T>();
+        return this;
+    }
+
+    public IEnricherBuilder AddEnricher<T>(T enricher) where T : class, IRequestEnricher
+    {
+        _services.AddSingleton<IRequestEnricher>(enricher);
+        return this;
+    }
+}
