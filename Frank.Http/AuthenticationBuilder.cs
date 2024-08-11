@@ -15,12 +15,14 @@ public class AuthenticationBuilder : IAuthenticationBuilder
     public IAuthenticationBuilder AddAuthentication<T>() where T : class, IHttpAuthentication
     {
         _services.AddSingleton<T>();
+        _services.AddSingleton<IHttpAuthentication>(provider => provider.GetRequiredService<T>());
         return this;
     }
 
     public IAuthenticationBuilder AddAuthentication<T>(T authentication) where T : class, IHttpAuthentication
     {
-        _services.AddSingleton<IHttpAuthentication>(authentication);
+        _services.AddSingleton<T>(authentication);
+        _services.AddSingleton<IHttpAuthentication>(provider => provider.GetRequiredService<T>());
         return this;
     }
 }

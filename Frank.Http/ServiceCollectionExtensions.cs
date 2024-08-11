@@ -5,6 +5,14 @@ namespace Frank.Http;
 
 public static class ServiceCollectionExtensions
 {
+    public static IServiceCollection AddFrankHttpAuthentication<T>(this IServiceCollection services) where T : class, IHttpAuthentication
+    {
+        services.AddSingleton<IHttpAuthentication, T>();
+        services.AddSingleton<IAuthenticationBuilder>(provider => provider.GetRequiredService<IAuthenticationBuilder>().AddAuthentication<T>());
+        return services;
+    }
+    
+    
     public static IServiceCollection AddFrankHttp(this IServiceCollection services)
     {
         services.AddHttpClient();

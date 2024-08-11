@@ -15,11 +15,13 @@ public class EnricherBuilder : IEnricherBuilder
     public IEnricherBuilder AddEnricher<T>() where T : class, IRequestEnricher
     {
         _services.AddSingleton<T>();
+        _services.AddSingleton<IRequestEnricher>(provider => provider.GetRequiredService<T>());
         return this;
     }
 
     public IEnricherBuilder AddEnricher<T>(T enricher) where T : class, IRequestEnricher
     {
+        _services.AddSingleton<T>(enricher);
         _services.AddSingleton<IRequestEnricher>(enricher);
         return this;
     }

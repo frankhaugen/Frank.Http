@@ -5,9 +5,9 @@ namespace Frank.Http.Authentication.Api;
 
 public class ApiKeyAuthentication : IHttpAuthentication
 {
-    private readonly IOptions<ApiAuthenticationConfiguration> _options;
+    private readonly IOptions<ApiKeyAuthenticationConfiguration> _options;
 
-    public ApiKeyAuthentication(IOptions<ApiAuthenticationConfiguration> options)
+    public ApiKeyAuthentication(IOptions<ApiKeyAuthenticationConfiguration> options)
     {
         _options = options;
     }

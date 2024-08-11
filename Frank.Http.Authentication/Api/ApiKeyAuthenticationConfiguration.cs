@@ -1,6 +1,6 @@
 ﻿namespace Frank.Http.Authentication.Api;
 
-public class ApiAuthenticationConfiguration
+public class ApiKeyAuthenticationConfiguration
 {
     /// <summary>
     /// The name of the header to add the API key to.
