@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 
@@ -9,7 +10,7 @@ public class OidcTokenProvider : IOicdTokenProvider
     private readonly HttpClient _httpClient;
     private readonly IMemoryCache _cache;
     private readonly IOptions<OidcAuthenticationConfiguration> _options;
-    
+
     private string _tokenKey => $"oidc-token";
 
     public OidcTokenProvider(HttpClient httpClient, IOptions<OidcAuthenticationConfiguration> options, IMemoryCache cache)
@@ -21,11 +22,15 @@ public class OidcTokenProvider : IOicdTokenProvider
 
     public async Task<string> GetTokenAsync(CancellationToken cancellationToken)
     {
-        if (_cache.TryGetValue<string>(_tokenKey, out var token))
+        if (_cache.TryGetValue<string>(_tokenKey, out var token) && token is not null)
         {
             return token;
         }
-        var request = new HttpRequestMessage(HttpMethod.Post, _options.Value.TokenEndpoint);
+
+        var tokenEndpoint = _options.Value.TokenEndpoint
+            ?? throw new InvalidOperationException($"{nameof(OidcAuthenticationConfiguration.TokenEndpoint)} is not configured.");
+
+        var request = new HttpRequestMessage(HttpMethod.Post, tokenEndpoint);
         request.Content = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             ["grant_type"] = "client_credentials",
@@ -38,11 +43,14 @@ public class OidcTokenProvider : IOicdTokenProvider
         response.EnsureSuccessStatusCode();
 
         var content = await response.Content.ReadAsStringAsync();
-        var tokenResponse = JsonSerializer.Deserialize<TokenResponse>(content);
+        var tokenResponse = JsonSerializer.Deserialize<TokenResponse>(content)
+            ?? throw new InvalidOperationException("Token endpoint returned an empty or invalid JSON body.");
+
         _cache.Set(_tokenKey, tokenResponse.AccessToken, TimeSpan.FromSeconds(300));
 
-        return token;
+        return tokenResponse.AccessToken;
     }
 
-    private record TokenResponse(string AccessToken);
+    private sealed record TokenResponse(
+        [property: JsonPropertyName("access_token")] string AccessToken);
 }

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.0" />
+    <PackageReference Include="TUnit" Version="1.23.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Frank.Http\Frank.Http.csproj" />
+    <ProjectReference Include="..\Frank.Http.Extensions\Frank.Http.Extensions.csproj" />
+    <ProjectReference Include="..\Frank.Http.Authentication\Frank.Http.Authentication.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -12,6 +12,12 @@ public static class ServiceCollectionExtensions
         return services;
     }
     
+    public static IServiceCollection AddFrankHttpRequestEnricher<T>(this IServiceCollection services) where T : class, IRequestEnricher
+    {
+        services.AddSingleton<IRequestEnricher, T>();
+        services.AddSingleton<IEnricherBuilder>(provider => provider.GetRequiredService<IEnricherBuilder>().AddEnricher<T>());
+        return services;
+    }
     
     public static IServiceCollection AddFrankHttp(this IServiceCollection services)
     {

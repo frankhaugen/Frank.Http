@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/Solution Files/">
+    <File Path=".github/workflows/merge.yml" />
+    <File Path=".github/workflows/pull-request.yml" />
+    <File Path=".github/workflows/release.yml" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="global.json" />
+    <File Path="icon.png" />
+    <File Path="LICENSE" />
+    <File Path="nuget.config" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Frank.Http.Abstractions/Frank.Http.Abstractions.csproj" />
+  <Project Path="Frank.Http.Authentication/Frank.Http.Authentication.csproj" />
+  <Project Path="Frank.Http.Extensions/Frank.Http.Extensions.csproj" />
+  <Project Path="Frank.Http.Tests/Frank.Http.Tests.csproj" />
+  <Project Path="Frank.Http/Frank.Http.csproj" />
+</Solution>
