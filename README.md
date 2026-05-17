@@ -1,3 +1,5 @@
+> **Moved to Novolis:** This library is superseded by [\`Novolis.Transports.Http\`](https://www.nuget.org/packages/Novolis.Transports.Http) from [novolis-transports](https://github.com/Novolis-Platform/novolis-transports). This repository is archived; do not add features here.
+
 # Frank.Http
 
 Frank.Http is a library for making HTTP requests in a modern way. It is built on top of the `HttpClient` class that is available in .NET Core and .NET Standard. It is designed to be simple to use and easy to extend.
